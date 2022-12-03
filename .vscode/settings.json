@@ -1,0 +1,30 @@
+{
+  "phpsab.standard": "Wordpress",
+  "phpsab.fixerEnable": true,
+  "phpsab.snifferEnable": true,
+  "phpsab.executablePathCS": "/Users/james.tetley/.composer/vendor/bin/phpcs",
+  "phpsab.executablePathCBF": "/Users/james.tetley/.composer/vendor/bin/phpcbf",
+  "phpsab.snifferMode": "onType",
+  "phpsab.snifferShowSources": true,
+  "[php]": {
+    "editor.defaultFormatter": "valeryanm.vscode-phpsab"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "SCSS": "CSS"
+  },
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.validate": [
+    "javascript"
+  ],
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ]
+}

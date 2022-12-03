@@ -1,0 +1,18 @@
+{
+    "name": "tetloose/advanced-custom-fields-pro",
+    "type": "wordpress-muplugin",
+    "authors": [
+        {
+            "name": "Elliot Condon",
+            "email": "e@elliotcondon.com"
+        },
+        {
+            "name": "Ethan Clevenger",
+            "email": "ethan@sternerstuff.dev"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "tutv95/wp-package-parser": "^1.0"
+    }
+}
