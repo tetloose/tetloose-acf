@@ -1,6 +1,6 @@
 {
     "name": "tetloose/advanced-custom-fields-pro",
-    "type": "wordpress-muplugin",
+    "type": "wordpress-plugin",
     "authors": [
         {
             "name": "Elliot Condon",
