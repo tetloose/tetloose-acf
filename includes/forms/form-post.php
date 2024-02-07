@@ -289,41 +289,50 @@ if ( ! class_exists( 'ACF_Form_Post' ) ) :
 			return $allow;
 		}
 
-		/**
-		 * Triggers during the 'save_post' action to save the $_POST data.
-		 *
-		 * @since   1.0.0
-		 *
-		 * @param integer $post_id The post ID.
-		 * @param WP_Post $post    The post object.
-		 * @return integer
-		 */
-		public function save_post( $post_id, $post ) {
-			// Bail early if not allowed to save this post type.
+		/*
+		*  save_post
+		*
+		*  Triggers during the 'save_post' action to save the $_POST data.
+		*
+		*  @type    function
+		*  @date    23/06/12
+		*  @since   1.0.0
+		*
+		*  @param   int $post_id The post ID
+		*  @param   WP_POST $post the post object.
+		*  @return  int
+		*/
+
+		function save_post( $post_id, $post ) {
+
+			// bail early if no allowed to save this post type
 			if ( ! $this->allow_save_post( $post ) ) {
 				return $post_id;
 			}
 
-			// Verify nonce.
+			// verify nonce
 			if ( ! acf_verify_nonce( 'post' ) ) {
 				return $post_id;
 			}
 
-			// Validate for published post (allow draft to save without validation).
-			if ( $post->post_status === 'publish' ) {
-				// Bail early if validation fails.
+			// validate for published post (allow draft to save without validation)
+			if ( $post->post_status == 'publish' ) {
+
+				// bail early if validation fails
 				if ( ! acf_validate_save_post() ) {
 					return;
 				}
 			}
 
+			// save
 			acf_save_post( $post_id );
 
-			// We handle revisions differently on WP 6.4+.
-			if ( version_compare( get_bloginfo( 'version' ), '6.4', '<' ) && post_type_supports( $post->post_type, 'revisions' ) ) {
+			// save revision
+			if ( post_type_supports( $post->post_type, 'revisions' ) ) {
 				acf_save_post_revision( $post_id );
 			}
 
+			// return
 			return $post_id;
 		}
 	}

@@ -362,8 +362,6 @@ if ( ! class_exists( 'acf_field_flexible_content' ) ) :
 				'class'       => 'layout',
 				'data-id'     => $id,
 				'data-layout' => $layout['name'],
-				'data-max'    => $layout['max'],
-				'data-label'  => $layout['label'],
 			);
 
 			// clone
